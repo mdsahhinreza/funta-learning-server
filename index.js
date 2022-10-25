@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 const categories = require("./data/courseCategory.json");
+const courses = require("./data/courses.json");
 
 app.get("/", (req, res) => {
   res.send("Funta-Learning Server is Running... 😎");
@@ -14,6 +15,10 @@ app.get("/", (req, res) => {
 
 app.get("/course-categories", (req, res) => {
   res.send(categories);
+});
+
+app.get("/all-courses", (req, res) => {
+  res.send(courses);
 });
 
 app.listen(port, () => {
