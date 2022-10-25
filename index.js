@@ -6,8 +6,14 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 
-qpp.get("/", (req, res) => {
+const categories = require("./data/courseCategory.json");
+
+app.get("/", (req, res) => {
   res.send("Funta-Learning Server is Running... 😎");
+});
+
+app.get("/course-categories", (req, res) => {
+  res.send(categories);
 });
 
 app.listen(port, () => {
