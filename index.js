@@ -17,7 +17,19 @@ app.get("/course-categories", (req, res) => {
   res.send(categories);
 });
 
-app.get("/all-courses", (req, res) => {
+app.get("/courses/:id", (req, res) => {
+  const id = req.params.id;
+  const selectedCourse = courses.find((co) => co.course_id === id);
+  res.send(selectedCourse);
+});
+
+app.get("/category/:id", (req, res) => {
+  const id = req.params.id;
+  const categoryCourse = courses.filter((co) => co.category_id === id);
+  res.send(categoryCourse);
+});
+
+app.get("/courses", (req, res) => {
   res.send(courses);
 });
 
